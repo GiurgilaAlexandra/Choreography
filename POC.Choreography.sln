@@ -1,0 +1,82 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32126.317
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0. Cross-cutting concerns", "0. Cross-cutting concerns", "{894CFC85-AAC9-4E34-AB62-45270623FEB9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Order", "1. Order", "{EB762F95-F243-4824-B793-32C87342D99D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Payment", "2. Payment", "{82AFB1BC-0C3F-4751-9BB8-2F7D212BAA51}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Shipping", "3. Shipping", "{39F812CA-2F7D-4559-AEA6-16691EC2FFCB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4. Notification", "4. Notification", "{BEA63BF9-88DE-49CE-8BFC-DFF4CC461666}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "99. Tests", "99. Tests", "{A437D98C-FCF4-4425-B551-EA305D7C1640}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "POC.Choreography.Order.API", "POC.Choreography.Order.API\POC.Choreography.Order.API.csproj", "{877B5C00-8643-4BCD-9AFD-27ED6FCA8EEE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "POC.Choreography.Order.Service", "POC.Choreography.Order.Service\POC.Choreography.Order.Service.csproj", "{FBFF41B5-E7DC-47ED-9FA2-654C728B4D30}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "POC.Choreography.Payment.Server", "POC.Choreography.Payment.Server\POC.Choreography.Payment.Server.csproj", "{01D2B6A9-95B6-46B4-A21D-97D80F0038B9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "POC.Choreography.Shipping.Server", "POC.Choreography.Shipping.Server\POC.Choreography.Shipping.Server.csproj", "{4DD0DAB5-C051-4789-BB7C-5B06BC527D3E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "POC.Choreography.Notification.Server", "POC.Choreography.Notification.Server\POC.Choreography.Notification.Server.csproj", "{05319F62-5ACD-4BCD-BC40-87C4D055F17C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "POC.Choreography.Infrastructure", "POC.Choreography.Infrastructure\POC.Choreography.Infrastructure.csproj", "{5839A2DC-95AA-4141-A4BD-8EAE623A1461}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "POC.Choreography.Events", "POC.Choreography.Events\POC.Choreography.Events.csproj", "{AF54B3AC-E40B-4164-B8D6-158A2ADB8A3B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{877B5C00-8643-4BCD-9AFD-27ED6FCA8EEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{877B5C00-8643-4BCD-9AFD-27ED6FCA8EEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{877B5C00-8643-4BCD-9AFD-27ED6FCA8EEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{877B5C00-8643-4BCD-9AFD-27ED6FCA8EEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBFF41B5-E7DC-47ED-9FA2-654C728B4D30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBFF41B5-E7DC-47ED-9FA2-654C728B4D30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBFF41B5-E7DC-47ED-9FA2-654C728B4D30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBFF41B5-E7DC-47ED-9FA2-654C728B4D30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01D2B6A9-95B6-46B4-A21D-97D80F0038B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01D2B6A9-95B6-46B4-A21D-97D80F0038B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01D2B6A9-95B6-46B4-A21D-97D80F0038B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01D2B6A9-95B6-46B4-A21D-97D80F0038B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DD0DAB5-C051-4789-BB7C-5B06BC527D3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DD0DAB5-C051-4789-BB7C-5B06BC527D3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DD0DAB5-C051-4789-BB7C-5B06BC527D3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DD0DAB5-C051-4789-BB7C-5B06BC527D3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05319F62-5ACD-4BCD-BC40-87C4D055F17C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05319F62-5ACD-4BCD-BC40-87C4D055F17C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05319F62-5ACD-4BCD-BC40-87C4D055F17C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05319F62-5ACD-4BCD-BC40-87C4D055F17C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5839A2DC-95AA-4141-A4BD-8EAE623A1461}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5839A2DC-95AA-4141-A4BD-8EAE623A1461}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5839A2DC-95AA-4141-A4BD-8EAE623A1461}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5839A2DC-95AA-4141-A4BD-8EAE623A1461}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF54B3AC-E40B-4164-B8D6-158A2ADB8A3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF54B3AC-E40B-4164-B8D6-158A2ADB8A3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF54B3AC-E40B-4164-B8D6-158A2ADB8A3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF54B3AC-E40B-4164-B8D6-158A2ADB8A3B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{877B5C00-8643-4BCD-9AFD-27ED6FCA8EEE} = {EB762F95-F243-4824-B793-32C87342D99D}
+		{FBFF41B5-E7DC-47ED-9FA2-654C728B4D30} = {EB762F95-F243-4824-B793-32C87342D99D}
+		{01D2B6A9-95B6-46B4-A21D-97D80F0038B9} = {82AFB1BC-0C3F-4751-9BB8-2F7D212BAA51}
+		{4DD0DAB5-C051-4789-BB7C-5B06BC527D3E} = {39F812CA-2F7D-4559-AEA6-16691EC2FFCB}
+		{05319F62-5ACD-4BCD-BC40-87C4D055F17C} = {BEA63BF9-88DE-49CE-8BFC-DFF4CC461666}
+		{5839A2DC-95AA-4141-A4BD-8EAE623A1461} = {894CFC85-AAC9-4E34-AB62-45270623FEB9}
+		{AF54B3AC-E40B-4164-B8D6-158A2ADB8A3B} = {894CFC85-AAC9-4E34-AB62-45270623FEB9}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E480CEC4-4B27-484F-8CEC-61F1935973BD}
+	EndGlobalSection
+EndGlobal
