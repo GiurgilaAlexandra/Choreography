@@ -1,6 +1,6 @@
 ﻿namespace POC.Choreography.Events
 {
-    public class PaymentRequest
+    public class PaymentRequestedEvent
     {
         public int OrderId { get; set; }
     }

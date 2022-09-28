@@ -17,8 +17,8 @@ namespace POC.Choreography.Shipping.Server.Consumers
             Console.WriteLine("Received shipping request for order " + context.Message.OrderId);
             await DoShipping();
 
-            await _publishEndpoint.Publish(new OrderShipmentCompletedEvent { OrderId = context.Message.OrderId });
             Console.WriteLine("Shipping completed for order " + context.Message.OrderId);
+            await _publishEndpoint.Publish(new ReportingEvent { OrderId = context.Message.OrderId, OrderStatus = "Closed"});
         }
 
         private Task DoShipping()

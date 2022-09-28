@@ -10,9 +10,9 @@ namespace POC.Choreography.Order.API.Controllers
     [Route("[controller]")]
     public class OrderController : ControllerBase
     {
-        private readonly IRequestClient<PaymentRequest> _paymentClient;
+        private readonly IRequestClient<PaymentRequestedEvent> _paymentClient;
         private readonly IPublishEndpoint _publishEndpoint;
-        public OrderController(IRequestClient<PaymentRequest> paymentClient,
+        public OrderController(IRequestClient<PaymentRequestedEvent> paymentClient,
             IPublishEndpoint publishEndpoint)
         {
             _paymentClient = paymentClient;
@@ -28,37 +28,30 @@ namespace POC.Choreography.Order.API.Controllers
         [HttpPost]
         public async Task<IActionResult> Post(CreateOrderModel createOrderModel)
         {
-         //  var order = Create(createOrderModel);
-         var order = CreateNewOrder(createOrderModel);
+            var order = CreateNewOrder(createOrderModel);
          await SaveOrder(order);
          Console.WriteLine("Created order number: " + order.Id);
          await NotifyClient(order.Id, "Created");
 
-         var paymentResponse = await SendPaymentRequest(order);
+         await PublishPaymentRequestedEvent(order);
          await NotifyClient(order.Id, "PaymentRequested");
-         if (!paymentResponse.IsSucceeded)
-         {
-             throw new Exception("Payment failed!");
-         }
+         //await NotifyClient(order.Id, "PaymentCompleted");
 
-         await NotifyClient(order.Id, "PaymentCompleted");
+         //await PublishOrderShipmentStartedEvent(order);
+         //await NotifyClient(order.Id, "ShippingStarted");
 
-         await PublishOrderShipmentStartedEvent(order);
-         await NotifyClient(order.Id, "ShippingStarted");
+         //Console.WriteLine("Shipping completed for order " + order.Id);
+         //await NotifyClient(order.Id, "ShippingCompleted");
+         //await CloseOrder(order.Id);
+         //await NotifyClient(order.Id, "Closed");
 
-         Console.WriteLine("Shipping completed for order " + order.Id);
-         await NotifyClient(order.Id, "ShippingCompleted");
-         await CloseOrder(order.Id);
-         await NotifyClient(order.Id, "Closed");
-            return Accepted();
+         return Accepted();
         }
 
-        private async Task<PaymentResult> SendPaymentRequest(OrderModel order)
+        private async Task PublishPaymentRequestedEvent(OrderModel order)
         {
             Console.WriteLine("Requesting payment for order " + order.Id);
-            var response = await _paymentClient.GetResponse<PaymentResult>(new PaymentRequest { OrderId = order.Id });
-            Console.WriteLine("Payment success for order " + order.Id + " is: " + response.Message.IsSucceeded);
-            return response.Message;
+            await _publishEndpoint.Publish(new PaymentRequestedEvent { OrderId = order.Id });
         }
 
         private async Task PublishOrderShipmentStartedEvent(OrderModel order)
